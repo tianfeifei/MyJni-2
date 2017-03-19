@@ -7,4 +7,6 @@ package com.example.tianfei.myjni_2.strategy;
 
 public abstract class ConnectAPI {
     public abstract void connect();
+    //
 }
+
