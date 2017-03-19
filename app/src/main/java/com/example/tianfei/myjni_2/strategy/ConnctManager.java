@@ -23,6 +23,7 @@ public class ConnctManager {
      * 禁止构造
      */
     private ConnctManager() {
+        //nihao
     }
 
     /**
