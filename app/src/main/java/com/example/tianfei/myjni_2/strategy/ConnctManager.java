@@ -11,20 +11,13 @@ import com.example.tianfei.myjni_2.factory.ConnectFactoryAPIImpl;
 
 public class ConnctManager {
     /**
-     * 获得单例
-     *
-     * @return
+     * 连接工厂类
      */
-    public static ConnctManager getInstance() {
-        return InstanceHolder.INSTANCE;
-    }
-
+    private static ConnectFactoryAPI factory = new ConnectFactoryAPIImpl();
     /**
-     * 单例持有器
+     * 初始化连接类
      */
-    private static final class InstanceHolder {
-        private static final ConnctManager INSTANCE = new ConnctManager();
-    }
+    private ConnectAPI connect = factory.createConnect(BleConnect.class);
 
     /**
      * 禁止构造
@@ -33,14 +26,14 @@ public class ConnctManager {
     }
 
     /**
-     * 连接工厂类
+     * 获得单例
+     *
+     * @return
      */
-    private static ConnectFactoryAPI factory = new ConnectFactoryAPIImpl();
-
-    /**
-     * 初始化连接类
-     */
-    private ConnectAPI connect = factory.createConnect(BleConnect.class);
+    public static ConnctManager getInstance() {
+        return InstanceHolder.INSTANCE;
+        //随便
+    }
 
     /**
      * 连接方法
@@ -64,6 +57,13 @@ public class ConnctManager {
     public void clear() {
         connect=null;
         factory=null;
+    }
+
+    /**
+     * 单例持有器
+     */
+    private static final class InstanceHolder {
+        private static final ConnctManager INSTANCE = new ConnctManager();
     }
 
 }
